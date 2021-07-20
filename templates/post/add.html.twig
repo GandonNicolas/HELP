@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'article{% endblock %}
+
+{% block body %}
+
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Ajouter nouvelle article
+        </button>
+
+        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    
+
+                    <form class="container">
+                        <h2 class="my-3">Ajout d'article</h2>
+                        <input class="form-control form-control-lg mb-3" type="text" placeholder="Titre"
+                            aria-label=".form-control-lg example">
+
+                        <input class="form-control mb-3" type="text" placeholder="Mots clés"
+                            aria-label="default input example">
+
+                        <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="WYSIWYG à venir"></textarea>
+
+                        <div class="row">
+                            <div class="col-4 col-md-3 col-lg-2 col-xl-2 dropdown">
+                                <button class="btn btn-outline-dark me-2 dropdown-toggle" type="button"
+                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Durée de vie
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li class="dropdown-item"> 3 mois </li>
+                                    <li class="dropdown-item"> 6 mois </li>
+                                    <li class="dropdown-item"> 12 mois </li>
+                                </ul>
+                            </div>
+
+                            <div class="col dropdown">
+                                <button class="btn btn-outline-dark me-2 dropdown-toggle" type="button"
+                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Contexte
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Bootstrap</a></li>
+                                    <li><a class="dropdown-item" href="#">Symfony</a></li>
+                                    <li><a class="dropdown-item" href="#">Autre</a></li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-dark m-3" href="#" role="button">Annuler</button>
+                                <button class="btn btn-dark m-3" type="submit">Envoyer</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
