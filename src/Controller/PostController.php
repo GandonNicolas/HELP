@@ -26,5 +26,15 @@ class PostController extends AbstractController
             'controller_name' => 'PostController',
         ]);
     }
+  /**
+     * @Route("/post/modify", name="post_modify")
+     */
+
+    public function modify(): Response
+    {
+        return $this->render('post/modify.html.twig', [
+            'controller_name' => 'PostController',
+        ]);
+    }
 }
 
