@@ -25,12 +25,17 @@ vérifier si l'on travaille bien sûr ça branche !
 
 #-----A CHAQUE FOIS QUE L'ON VEUX PUSH NOTRE TRAVAIL
 
-
+git branch (pour vérifier ou on se trouve)
 git add . (pour tous les fichier que l'on veut envoyer)
 git add mon_fichier (pour spécifier un fichier précis)
 git commit -m "ici_le_nom_du_commit" (le nom du commit doit être explicite !!!)
 git push origin le_nom_de_ma_branche
 
+
+
+#-----INFOS UTILES
+
+Nom de la BDD postgreSQL : HELP
 
 
 #-----CREDITS
