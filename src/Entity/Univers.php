@@ -8,9 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=UniverRepository::class)
+ * @ORM\Entity(repositoryClass=UniversRepository::class)
  */
-class Univer
+class Univers
 {
     /**
      * @ORM\Id
