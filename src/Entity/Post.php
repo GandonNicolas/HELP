@@ -42,6 +42,12 @@ class Post
      */
     private $keyword;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Context::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $context;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Post
     public function setKeyword(?string $keyword): self
     {
         $this->keyword = $keyword;
+
+        return $this;
+    }
+
+    public function getContext(): ?Context
+    {
+        return $this->context;
+    }
+
+    public function setContext(?Context $context): self
+    {
+        $this->context = $context;
 
         return $this;
     }
