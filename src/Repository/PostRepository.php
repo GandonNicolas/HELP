@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +19,36 @@ class PostRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Post::class);
+    }
+
+    public function findItems(string $query): array
+    {
+
+        $sql = "SELECT p.*,
+            ts_rank(to_tsvector(content), to_tsquery('this & first')) as rank
+            FROM post p
+            WHERE ts_rank(to_tsvector(content), to_tsquery('this & first')) > 0
+            ORDER BY ts_rank(to_tsvector(content), to_tsquery('this & first')) DESC 
+            ";
+
+        $rsm = new ResultSetMappingBuilder($this->getEntityManager());
+        $rsm->addRootEntityFromClassMetadata(Post::class, 'p');
+        $rsm->addScalarResult('rank', 'rank');
+
+        
+        // foreach ($this->getClassMetadata()->fieldMappings as $obj) {
+        //     $rsm->addFieldResult("p", $obj["columnName"], $obj["title"]);
+        // }
+
+        $stmt = $this->getEntityManager()->createNativeQuery($sql, $rsm);
+
+        // $stmt->setParameter(":title", new \title(""));
+        // $stmt->setParameter(":content", MyClass::STATUS_AVAILABLE);
+        // $stmt->setParameter(":keyword", MyClass::STATUS_UNKNOWN);
+
+        $stmt->execute();
+
+        return $stmt->getResult();
     }
 
     // /**
