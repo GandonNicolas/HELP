@@ -40,11 +40,13 @@ composer install
 
 * composer require friendsofsymfony/ckeditor-bundle
 
-* php bin/console ckeditor:install --release=full
+* npm run php bin/console ckeditor:install --release=full
+
+
+# Attention verifier si dans "./node_modules/ckeditor4/plugins" on trouve le dossier "codesnippet" si c'est pas le cas il faut l'ajouter 
 
 * npm run dev
 
-* Ajouter le dossier /codesnippet dans => public/bundles/fosckeditor/plugins/
 
 
 pour des aides :  https://symfony.com/bundles/FOSCKEditorBundle/current/usage/ckeditor.html
